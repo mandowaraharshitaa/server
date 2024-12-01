@@ -16,7 +16,7 @@ export const createCourse = TryCatch(async (req, res) => {
     description,
     category,
     createdBy,
-    image: image?.path,
+    image: req.file ? req.file.path : "",
     duration,
     price,
   });
@@ -34,7 +34,7 @@ export const addLectures = TryCatch(async (req, res) => {
       message: "No Course with this id",
     });
 
-  const { title, description } = req.body;
+  const {title,description} = req.body;
 
   const file = req.file;
 
