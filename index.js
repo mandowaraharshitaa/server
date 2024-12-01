@@ -16,14 +16,14 @@ const app = express();
 // using middlewares
 app.use(express.json());
 app.use(cors());
-
+app.use("/uploads", express.static("uploads"));
 const port = process.env.PORT;
 
 app.get("/", (req, res) => {
   res.send("Server is working");
 });
 
-app.use("/uploads", express.static("uploads"));
+
 
 // importing routes
 import userRoutes from "./routes/user.js";
