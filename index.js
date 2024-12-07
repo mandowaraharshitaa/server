@@ -15,7 +15,9 @@ const app = express();
 
 // using middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://http://talentflexsolution.in'  // Replace with your frontend URL
+}));
 app.use("/uploads", express.static("uploads"));
 const port = process.env.PORT;
 
